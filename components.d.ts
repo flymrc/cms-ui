@@ -10,6 +10,9 @@ declare module 'vue' {
     ElProgress: typeof import('element-plus/es')['ElProgress']
     ElText: typeof import('element-plus/es')['ElText']
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
+    IconButton: typeof import('./src/components/IconButton.vue')['default']
+    MainMenuV2: typeof import('./src/components/menu/MainMenuV2.vue')['default']
+    MainMenuV2Item: typeof import('./src/components/menu/MainMenuV2Item.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
   }
