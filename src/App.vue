@@ -1,72 +1,59 @@
 <script setup lang="ts">
-const status = "waitting-init"
+import { computed } from 'vue'
+import { useAppStore } from '@/store/modules/app'
+import { ConfigGlobal } from '@/components/ConfigGlobal'
+import { useDesign } from '@/hooks/web/useDesign'
+import { ElNotification } from 'element-plus'
+
+const { getPrefixCls } = useDesign()
+
+const prefixCls = getPrefixCls('app')
+
+const appStore = useAppStore()
+
+const currentSize = computed(() => appStore.getCurrentSize)
+
+const greyMode = computed(() => appStore.getGreyMode)
+
+appStore.initTheme()
+
+ElNotification({
+  title: '提示',
+  type: 'warning',
+  duration: 0,
+  dangerouslyUseHTMLString: true,
+  message:
+    '<div><p><strong>遇事不决，请先查阅常见问题，说不定你能找到相关解答</strong></p><p><a href="https://element-plus-admin-doc.cn/guide/fqa.html" target="_blank">链接地址</a></p></div>'
+})
 </script>
 
 <template>
-  <div
-    v-if="status != 'inited'"
-    class="full"
-    style="
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-    "
-  >
-    <el-text style="color: #b1dfeb">{{ $t("initing") }}...</el-text>
-    <el-progress
-      :percentage="100"
-      :stroke-width="15"
-      status=""
-      :indeterminate="true"
-      style="width: 50%"
-      striped
-      :show-text="false"
-      striped-flow
-      :duration="15"
-    >
-    </el-progress>
-  </div>
-  <RouterView v-else></RouterView>
+  <ConfigGlobal :size="currentSize">
+    <RouterView :class="greyMode ? `${prefixCls}-grey-mode` : ''" />
+  </ConfigGlobal>
 </template>
 
-<style scoped>
-* {
-  margin: 0;
-  padding: 0;
-}
+<style lang="less">
+@prefix-cls: ~'@{adminNamespace}-app';
 
-html,
-body,
-#app {
+.size {
   width: 100%;
   height: 100%;
 }
 
-#app {
-  background: linear-gradient(#3c869b, #24b7da);
-}
-</style>
+html,
+body {
+  padding: 0 !important;
+  margin: 0;
+  overflow: hidden;
+  .size;
 
-<style lang="scss">
-.ep-error {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  & .frame {
-    width: 400px;
-    height: 100px;
-    background-color: #ffffffd0;
-    border-radius: 8px;
-
-    // border: 2px solid var(--el-color-danger);
-    color: var(--el-color-error-dark-2);
-    box-shadow: 0 0 12px var(--el-color-danger-light-5);
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  #app {
+    .size;
   }
+}
+
+.@{prefix-cls}-grey-mode {
+  filter: grayscale(100%);
 }
 </style>

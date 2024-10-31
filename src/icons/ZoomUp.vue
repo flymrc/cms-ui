@@ -1,5 +1,0 @@
-<template>
-    <svg class="icon" style="width: 1em;height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5749"><path d="M448 128a320 320 0 1 0 0 640A320 320 0 0 0 448 128zM42.688 448a405.312 405.312 0 1 1 810.688 0A405.312 405.312 0 0 1 42.688 448z" p-id="5750"></path><path d="M682.688 682.688c16.64-16.64 43.712-16.64 60.352 0l216.96 216.96a42.688 42.688 0 1 1-60.352 60.352l-216.96-216.96a42.688 42.688 0 0 1 0-60.352zM277.376 448c0-23.552 19.072-42.688 42.624-42.688h256a42.688 42.688 0 1 1 0 85.376H320A42.688 42.688 0 0 1 277.376 448z" p-id="5751"></path><path d="M405.376 320a42.688 42.688 0 0 1 85.312 0v256a42.688 42.688 0 0 1-85.312 0V320z" p-id="5752"></path></svg>
-</template>
-<script setup lang="ts">
-</script>

@@ -1,3 +1,3 @@
-import MainMenuV2 from "./MainMenuV2.vue"
+import Menu from './src/Menu.vue'
 
-export default MainMenuV2
+export { Menu }

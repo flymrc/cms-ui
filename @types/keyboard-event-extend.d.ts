@@ -1,3 +1,0 @@
-interface KeyboardEvent {
-    isEnterKey(): boolean
-}
